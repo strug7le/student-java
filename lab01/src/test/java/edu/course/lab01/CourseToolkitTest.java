@@ -22,11 +22,11 @@ class CourseToolkitTest {
 
         assertFalse(result);
     }
-<<<<<<< HEAD
-    @Test 
+
+    @Test
     void returnsTrueForNegativeEvenNumber() {
         boolean result = CourseToolkit.isEven(-8);
-        
+
         assertTrue(result);
     }
     // isPrime
@@ -50,7 +50,7 @@ class CourseToolkitTest {
     void isPrimeReturnsFalseForSquareOfPrime() {
         assertFalse(CourseToolkit.isPrime(49));
     }
-    // isPalindrome 
+    // isPalindrome
 
     @Test
     void isPalindromeReturnsTrueForPalindrome() {
@@ -91,12 +91,11 @@ class CourseToolkitTest {
     void averageThrowsForEmptyArray() {
         assertThrows(IllegalArgumentException.class, () -> CourseToolkit.average(new int[0]));
     }
-=======
+
     @Test
-    void returnsTrueForZero(){
+    void returnsTrueForZero() {
         boolean result = CourseToolkit.isEven(0);
-        
+
         assertTrue(result);
     }
->>>>>>> main
 }
