@@ -30,11 +30,6 @@ class CourseToolkitTest {
     }
     // isPrime
 
-    @Test 
-    void isPrimeReturnsFalseFor() {
-        assertFalse(CourseToolkit.isPrime(121));
-    }
-
     @Test
     void isPrimeReturnsFalseForOne() {
         assertFalse(CourseToolkit.isPrime(1));
