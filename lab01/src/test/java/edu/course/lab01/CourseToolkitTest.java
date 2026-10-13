@@ -22,6 +22,7 @@ class CourseToolkitTest {
 
         assertFalse(result);
     }
+<<<<<<< HEAD
     @Test 
     void returnsTrueForNegativeEvenNumber() {
         boolean result = CourseToolkit.isEven(-8);
@@ -90,4 +91,12 @@ class CourseToolkitTest {
     void averageThrowsForEmptyArray() {
         assertThrows(IllegalArgumentException.class, () -> CourseToolkit.average(new int[0]));
     }
+=======
+    @Test
+    void returnsTrueForZero(){
+        boolean result = CourseToolkit.isEven(0);
+        
+        assertTrue(result);
+    }
+>>>>>>> main
 }
