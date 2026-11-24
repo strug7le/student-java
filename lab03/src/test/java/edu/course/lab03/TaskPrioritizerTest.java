@@ -54,12 +54,17 @@ class TaskPrioritizerTest {
         ProjectTask first = new ProjectTask("TASK-1", "First", 8);
         ProjectTask second = new ProjectTask("TASK-2", "Second", 3);
         second.changeStatus(TaskStatus.IN_PROGRESS);
-        TaskPrioritizer prioritizer = new TaskPrioritizer(new EffortPriorityPolicy());
 
-        prioritizer.selectMoreImportant(first, second);
+        new TaskPrioritizer(new EffortPriorityPolicy()).selectMoreImportant(first, second);
+        new TaskPrioritizer(new StatusPriorityPolicy()).selectMoreImportant(first, second);
 
+        assertEquals("TASK-1", first.getId());
+        assertEquals("First", first.getTitle());
         assertEquals(TaskStatus.NEW, first.getStatus());
         assertEquals(8, first.getEstimatedHours());
+
+        assertEquals("TASK-2", second.getId());
+        assertEquals("Second", second.getTitle());
         assertEquals(TaskStatus.IN_PROGRESS, second.getStatus());
         assertEquals(3, second.getEstimatedHours());
     }

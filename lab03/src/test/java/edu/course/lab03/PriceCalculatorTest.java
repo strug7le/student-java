@@ -23,8 +23,11 @@ class PriceCalculatorTest {
 
     @Test
     void replacesDiscountPolicyWithoutChangingClientCode() {
-        assertEquals(100.0, calculateWith(new NoDiscount(), 100.0), 1e-9);
-        assertEquals(80.0, calculateWith(new PercentDiscount(20), 100.0), 1e-9);
+        PriceCalculator noDiscountCalculator = new PriceCalculator(new NoDiscount());
+        assertEquals(100.0, noDiscountCalculator.calculate(100.0), 1e-9);
+
+        PriceCalculator percentCalculator = new PriceCalculator(new PercentDiscount(20));
+        assertEquals(80.0, percentCalculator.calculate(100.0), 1e-9);
     }
 
     @Test
@@ -37,9 +40,5 @@ class PriceCalculatorTest {
         PriceCalculator calculator = new PriceCalculator(new NoDiscount());
 
         assertThrows(IllegalArgumentException.class, () -> calculator.calculate(-1.0));
-    }
-
-    private static double calculateWith(DiscountPolicy policy, double price) {
-        return new PriceCalculator(policy).calculate(price);
     }
 }
